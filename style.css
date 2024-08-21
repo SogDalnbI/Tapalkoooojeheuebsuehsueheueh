@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, green 10%, black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#circle {
+    position: absolute;
+    width: 396px;  /* 70% от 1280px */
+    height: 396px; /* 70% от 1280px */
+    background: radial-gradient(circle, green 40%, black);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+}
+
+#balance-container {
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+#energy-bar {
+    position: absolute;
+    bottom: 20px;
+    width: 80%;
+    height: 8px;
+    background-color: gray;
+    border-radius: 15px;
+}
+
+#energy {
+    height: 100%;
+    background-color: yellow;
+    border-radius: 15px;
+    width: 100%;
+}
+
+#upgrade-btn {
+    position: absolute;
+    bottom: 150px;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    padding: 10px;
+    border-radius: 18%;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#plus-one {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3498db;
+    opacity: 0;
+    animation: fly-up 1s forwards;
+}
+
+@keyframes fly-up {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50px) rotate(-15deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(15deg);
+    }
+}
