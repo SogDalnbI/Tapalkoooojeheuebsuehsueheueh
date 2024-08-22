@@ -119,6 +119,3 @@ setInterval(() => {
     }
     localStorage.setItem('lastVisit', Date.now());
 }, 1000);
-
-Убери чтобы картинка всегда была ток одна а не при кликах она меняется
-
