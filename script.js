@@ -17,7 +17,8 @@ localStorage.setItem('energy', energy);
 localStorage.setItem('lastVisit', now);
 
 window.onload = function() {
-    updateCircleImage();
+    // Установка фиксированного изображения круга
+    circle.style.backgroundImage = "url('am.png')";
     balanceAmount.innerText = balance;
     updateEnergyBar();
     upgradeBtn.innerText = `Upgrade Click (Cost: ${upgradeCost})`;
@@ -55,7 +56,6 @@ function increaseBalance(x, y) {
     updateEnergyBar();
     
     showPlusOne(x, y);
-    updateCircleImage();
 }
 
 function showPlusOne(x, y) {
@@ -69,16 +69,6 @@ function showPlusOne(x, y) {
     plusOne.addEventListener('animationend', () => {
         plusOne.remove();
     });
-}
-
-function updateCircleImage() {
-    if (balance >= 3000) {
-        circle.style.backgroundImage = "url('am2.png')";
-    } else if (balance >= 500) {
-        circle.style.backgroundImage = "url('am1.png')";
-    } else {
-        circle.style.backgroundImage = "url('am.png')";
-    }
 }
 
 function updateEnergyBar() {
