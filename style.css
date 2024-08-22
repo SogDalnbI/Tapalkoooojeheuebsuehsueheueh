@@ -11,9 +11,11 @@ body {
 }
 
 #circle {
-    position: absolute;
-    width: 396px;  /* 70% от 1280px */
-    height: 396px; /* 70% от 1280px */
+    position: relative;
+    width: 60vw;  /* Ширина 60% от ширины экрана */
+    height: 60vw; /* Высота 60% от ширины экрана */
+    max-width: 400px;  /* Максимальная ширина круга */
+    max-height: 400px; /* Максимальная высота круга */
     background: radial-gradient(circle, green 40%, black);
     border-radius: 50%;
     display: flex;
@@ -26,18 +28,22 @@ body {
 
 #balance-container {
     position: absolute;
-    top: 20%;
-    text-align: center;
-    font-size: 24px;
+    top: 10%;
+    right: 2vw; /* Отступ справа */
+    text-align: right; /* Текст выравнен справа */
+    font-size: 5vw;  /* Адаптивный размер текста */
     font-weight: bold;
     color: #fff;
+    max-width: 90vw;
 }
 
 #energy-bar {
     position: absolute;
-    bottom: 20px;
+    bottom: 15vh; /* Отступ снизу 25% от высоты экрана */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%); /* Смещение влево на 50% ширины */
     width: 80%;
-    height: 8px;
+    height: 1.5vh;  /* Адаптивная высота */
     background-color: gray;
     border-radius: 15px;
 }
@@ -51,22 +57,23 @@ body {
 
 #upgrade-btn {
     position: absolute;
-    top: 740px; /* Установите отступ от верхнего края */
-    left: 247px; /* Установите отступ от левого края */
-    width: 40%; /* Уменьшите ширину кнопки */
+    bottom: 25vh; /* Отступ снизу 15% от высоты экрана */
+    right: 2vw; /* Отступ справа */
+    width: 30%; /* Ширина кнопки в процентах */
+    max-width: 300px; /* Максимальная ширина кнопки */
     background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
-    padding: 8px; /* Уменьшите внутренние отступы */
-    border-radius: 18%;
+    padding: 1vh;  /* Адаптивные отступы */
+    border-radius: 10px; /* Радиус кнопки */
     border: none;
-    font-size: 14px; /* Уменьшите размер шрифта */
+    font-size: 3vw; /* Адаптивный размер шрифта */
     cursor: pointer;
     text-align: center;
 }
 
 #plus-one {
     position: absolute;
-    font-size: 18px;
+    font-size: 3.5vw;  /* Адаптивный размер текста */
     font-weight: bold;
     color: #3998db;
     opacity: 0;
