@@ -73,7 +73,7 @@ body {
     animation: fly-up 1s forwards;
 }
 
-@keyframes fly-up {
+@keyframes moveUpAndRotate {
     0% { 
         transform: translateY(0) translateX(0) rotate(0deg); 
     }
