@@ -64,13 +64,13 @@ body {
     text-align: center;
 }
 
-#plus-one {
+.plus-one {
     position: absolute;
-    font-size: 18px;
-    font-weight: bold;
-    color: #3498db;
-    opacity: 0;
-    animation: fly-up 1s forwards;
+    color: white;
+    font-size: 24px;
+    animation: moveUpAndRotate 1s ease forwards, fadeOut 1s ease forwards;
+    pointer-events: none;
+    z-index: 10;
 }
 
 @keyframes moveUpAndRotate {
