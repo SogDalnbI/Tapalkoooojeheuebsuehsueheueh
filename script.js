@@ -1,6 +1,6 @@
 let balance = localStorage.getItem('balance') ? parseInt(localStorage.getItem('balance')) : 0;
 let clickValue = localStorage.getItem('clickValue') ? parseInt(localStorage.getItem('clickValue')) : 1;
-let upgradeCost = localStorage.getItem('upgradeCost') ? parseInt(localStorage.getItem('upgradeCost')) : 50;
+let upgradeCost = localStorage.getItem('upgradeCost') ? parseInt(localStorage.getItem('upgradeCost')) : 2000;
 let energy = localStorage.getItem('energy') ? parseFloat(localStorage.getItem('energy')) : 1500;
 let lastVisit = localStorage.getItem('lastVisit') ? parseInt(localStorage.getItem('lastVisit')) : Date.now();
 
