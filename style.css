@@ -74,15 +74,19 @@ body {
 }
 
 @keyframes fly-up {
-    0% {
-        opacity: 1;
-        transform: translateY(0) rotate(0deg);
+    0% { 
+        transform: translateY(0) translateX(0) rotate(0deg); 
     }
-    50% {
-        transform: translateY(-50px) rotate(-15deg);
+    25% { 
+        transform: translateY(-25px) translateX(-10px) rotate(-15deg); 
     }
-    100% {
-        opacity: 0;
-        transform: translateY(-100px) rotate(15deg);
+    50% { 
+        transform: translateY(-50px) translateX(10px) rotate(15deg); 
+    }
+    75% { 
+        transform: translateY(-75px) translateX(-10px) rotate(-15deg); 
+    }
+    100% { 
+        transform: translateY(-100px) translateX(0) rotate(0deg); 
     }
 }
