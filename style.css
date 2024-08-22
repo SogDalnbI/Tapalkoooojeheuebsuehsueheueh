@@ -51,14 +51,15 @@ body {
 
 #upgrade-btn {
     position: absolute;
-    bottom: 150px;
-    width: 60%;
+    top: 20px; /* Установите отступ от верхнего края */
+    left: 20px; /* Установите отступ от левого края */
+    width: 40%; /* Уменьшите ширину кнопки */
     background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
-    padding: 10px;
+    padding: 8px; /* Уменьшите внутренние отступы */
     border-radius: 18%;
     border: none;
-    font-size: 18px;
+    font-size: 14px; /* Уменьшите размер шрифта */
     cursor: pointer;
     text-align: center;
 }
@@ -67,7 +68,7 @@ body {
     position: absolute;
     font-size: 18px;
     font-weight: bold;
-    color: #3498db;
+    color: #3008db;
     opacity: 0;
     animation: fly-up 1s forwards;
 }
@@ -75,16 +76,19 @@ body {
 @keyframes fly-up {
     0% {
         opacity: 1;
-        transform: translateY(0) rotate(0deg);
+        transform: translateX(-20px) translateY(0) rotate(0deg);
     }
     20% {
         transform: translateY(-50px) rotate(-15deg);
     }
+    40% {
+        transform: translateX(20px) translateY(-50px) rotate(-40deg);
+    }
     60% {
-        transform: translateY(-90px) rotate(-45deg);
+        transform: translateY(-70px) rotate(20deg);
     }
     100% {
         opacity: 0;
-        transform: translateY(-100px) rotate(15deg);
+        transform: translateY(-100px) rotate(0deg);
     }
 }
