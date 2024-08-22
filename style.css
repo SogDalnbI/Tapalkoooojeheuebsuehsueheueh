@@ -51,14 +51,15 @@ body {
 
 #upgrade-btn {
     position: absolute;
-    bottom: 150px;
-    width: 60%;
+    top: 20px; /* Расположить кнопку в верхнем левом углу */
+    left: 20px; /* Расположить кнопку в верхнем левом углу */
+    width: 120px; /* Сделать кнопку меньше */
     background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
-    padding: 10px;
-    border-radius: 18%;
+    padding: 8px;
+    border-radius: 8px; /* Меньшие скругления углов */
     border: none;
-    font-size: 18px;
+    font-size: 14px; /* Меньший размер шрифта */
     cursor: pointer;
     text-align: center;
 }
