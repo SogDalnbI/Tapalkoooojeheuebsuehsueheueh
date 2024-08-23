@@ -108,10 +108,10 @@ body {
     max-width: 300px;
     background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
-    padding: 0.7vh;
+    padding: 0.8vh;
     border-radius: 10px;
     border: none;
-    font-size: 3vw; /* Adaptive font size */
+    font-size: 2vw; /* Adaptive font size */
     cursor: pointer;
     text-align: center;
 }
