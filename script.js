@@ -3,25 +3,28 @@ let clickValue = localStorage.getItem('clickValue') ? parseInt(localStorage.getI
 let upgradeCost = localStorage.getItem('upgradeCost') ? parseInt(localStorage.getItem('upgradeCost')) : 2000;
 let energy = localStorage.getItem('energy') ? parseFloat(localStorage.getItem('energy')) : 1500;
 let lastVisit = localStorage.getItem('lastVisit') ? parseInt(localStorage.getItem('lastVisit')) : Date.now();
+let energyUpgradeCost = localStorage.getItem('energyUpgradeCost') ? parseInt(localStorage.getItem('energyUpgradeCost')) : 1399;
+let energyPerSecond = localStorage.getItem('energyPerSecond') ? parseFloat(localStorage.getItem('energyPerSecond')) : 0.5;
 
 const circle = document.getElementById('circle');
 const balanceAmount = document.getElementById('balance-amount');
 const energyBar = document.getElementById('energy');
 const upgradeBtn = document.getElementById('upgrade-btn');
+const energyUpgradeBtn = document.getElementById('energy-upgrade-btn');
 
 // Восстановление энергии за время отсутствия
 const now = Date.now();
 const timeElapsed = Math.floor((now - lastVisit) / 1000);
-energy = Math.min(1500, energy + 0.5 * timeElapsed);
+energy = Math.min(1500, energy + energyPerSecond * timeElapsed);
 localStorage.setItem('energy', energy);
 localStorage.setItem('lastVisit', now);
 
 window.onload = function() {
-    // Установка фиксированного изображения круга
-    circle.style.backgroundImage = "url('am.png')";
+    updateCircleImage();
     balanceAmount.innerText = balance;
     updateEnergyBar();
     upgradeBtn.innerText = `Upgrade Click (Cost: ${upgradeCost})`;
+    energyUpgradeBtn.innerText = `Upgrade Energy/sec (Cost: ${energyUpgradeCost})`;
 };
 
 circle.addEventListener('touchstart', (event) => {
@@ -47,6 +50,19 @@ upgradeBtn.addEventListener('click', () => {
     }
 });
 
+energyUpgradeBtn.addEventListener('click', () => {
+    if (balance >= energyUpgradeCost) {
+        balance -= energyUpgradeCost;
+        energyPerSecond += 0.5;
+        energyUpgradeCost = Math.floor(energyUpgradeCost * 2.2);
+        energyUpgradeBtn.innerText = `Upgrade Energy/sec (Cost: ${energyUpgradeCost})`;
+        localStorage.setItem('balance', balance);
+        localStorage.setItem('energyPerSecond', energyPerSecond);
+        localStorage.setItem('energyUpgradeCost', energyUpgradeCost);
+        balanceAmount.innerText = balance;
+    }
+});
+
 function increaseBalance(x, y) {
     balance += clickValue;
     balanceAmount.innerText = balance;
@@ -56,6 +72,7 @@ function increaseBalance(x, y) {
     updateEnergyBar();
     
     showPlusOne(x, y);
+    updateCircleImage();
 }
 
 function showPlusOne(x, y) {
@@ -69,6 +86,16 @@ function showPlusOne(x, y) {
     plusOne.addEventListener('animationend', () => {
         plusOne.remove();
     });
+}
+
+function updateCircleImage() {
+    if (balance >= 3000) {
+        circle.style.backgroundImage = "url('am2.png')";
+    } else if (balance >= 500) {
+        circle.style.backgroundImage = "url('am1.png')";
+    } else {
+        circle.style.backgroundImage = "url('am.png')";
+    }
 }
 
 function updateEnergyBar() {
@@ -89,7 +116,7 @@ function showEnergyIncrease() {
     plusEnergy.id = 'plus-one';
     plusEnergy.style.left = `${x}px`;
     plusEnergy.style.top = `${y}px`;
-    plusEnergy.innerText = '+0.5';
+    plusEnergy.innerText = `+${energyPerSecond}`;
     document.body.appendChild(plusEnergy);
 
     plusEnergy.addEventListener('animationend', () => {
@@ -99,7 +126,7 @@ function showEnergyIncrease() {
 
 setInterval(() => {
     if (energy < 1500) {
-        energy += 0.5;
+        energy += energyPerSecond;
         if (energy > 1500) {
             energy = 1500;
         }
