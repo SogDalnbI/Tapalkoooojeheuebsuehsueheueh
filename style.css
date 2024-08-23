@@ -39,7 +39,7 @@ body {
 
 #energy-bar {
     position: absolute;
-    bottom: 15vh; /* Отступ снизу 25% от высоты экрана */
+    bottom: 10vh; /* Отступ снизу 25% от высоты экрана */
     left: 50%; /* Центрирование по горизонтали */
     transform: translateX(-50%); /* Смещение влево на 50% ширины */
     width: 80%;
@@ -98,4 +98,20 @@ body {
         opacity: 0;
         transform: translateY(-100px) rotate(0deg);
     }
+}
+
+#energy-upgrade-btn {
+    position: absolute;
+    bottom: 20vh; /* Adjusted position to be below the click upgrade button */
+    right: 2vw; /* Align with the click upgrade button */
+    width: 30%; /* Width same as the click upgrade button */
+    max-width: 300px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    padding: 0.7vh;
+    border-radius: 10px;
+    border: none;
+    font-size: 3vw; /* Adaptive font size */
+    cursor: pointer;
+    text-align: center;
 }
